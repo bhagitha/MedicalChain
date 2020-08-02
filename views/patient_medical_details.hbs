@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Block Chain Portal</title>
+    <!-- for-mobile-apps -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Clinical Lab Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+    function hideURLbar(){ window.scrollTo(0,1); } </script>
+     <link rel='icon' type='image/png' href='logo.png' />
+    <!-- //for-mobile-apps -->
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- js -->
+    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    <!-- //js -->
+    <!--animate-->
+    <link href="css/animate.css" rel="stylesheet" type="text/css" media="all">
+    <script src="js/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+    <!--//end-animate-->
+    <link href='//fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <!-- start-smoth-scrolling -->
+    <script type="text/javascript" src="js/move-top.js"></script>
+    <script type="text/javascript" src="js/easing.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event){
+                event.preventDefault();
+                $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+            });
+        });
+    </script>
+    <!-- start-smoth-scrolling -->
+    <script src="js/responsiveslides.min.js"></script>
+</head>
+<body>
+<style>
+    input[type=submit] {
+        width: 50%;
+        background-color: #f8f8ff;
+        color: black;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+.banner_w3ls h2{color: #fff;}
+
+
+    input[type=submit]:hover {
+        background-color:#87cefa;
+    }
+</style>
+
+<!-- header -->
+<div class="header_w3l">
+    <div class="container">
+        <nav class="navbar navbar-default">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <h1><a  href="patient"><img src="/images/logo.png">Doctor Portal <span>  </span></a></h1>
+                 
+                 </div>
+            <!-- top-nav -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                <li><a href="doctor" class="">Home</a></li>
+                <li><a href="patient_details" class="">Patient Details</a></li>
+                <li><a href="/">Logout</a></li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+        </nav>
+    </div>
+</div>
+<br>
+<!-- //banner-bottom -->
+<div class="banner_w3ls w3layouts">
+    <br>
+    <br>
+    <marquee direction="left"><h2>Medical Details of Patient</h2></marquee>
+
+<div class="container">
+
+<div class="row">
+<div class="col-lg-8 col-md-offset-2">
+  {{#each data}}
+{{!-- {{#if data}} --}}
+    <div class="card">
+    <span id="card_id">
+    <h4>Name: {{_name}}</h4>
+    <h5>Age: {{_age}}</h5>
+    <h5>Address: {{_actorAddress}} </h5>
+    {{#equals _actorGender "1"}}
+    <h5>Gender: male</h5>
+    {{else}}
+    <h5>Gender: others</h5>
+    {{/equals}}
+    <h5>Medical Details:  </h5>
+    <textarea rows="5" class="form-control" name="med_details"></textarea>
+
+    </span>
+
+    <div class="row">
+    <div class="col-lg-8 col-md-offset-4">
+    {{!-- <a class="btn btn-primary" id="btn-serv" style="text-align: center;" href="save_medical_detail">Save</a> --}}
+     
+    <a class="btn btn-primary" onclick="_downloadPdf(event)" id="btn-serv" style="text-align: center;" href="javascript:void(0);">Download as PDF</a>
+    </div>
+    </div>
+    
+    </div>
+    {{!-- {{else}}
+    <div class="card">
+        <h3>No record found</h3>
+    </div> --}}
+    {{/each}}
+<div>
+            <h2><center>Report Upload</center></h2>
+            <form action="/upload" method="POST" enctype="multipart/form-data">
+            <input type="text" name="phone" placeholder="Enter phone No"/>
+            <br>
+            <input type="file" name="report"/>
+            <br>
+            <input type="submit" value="Upload Report"/>
+            </form>	
+    </div>
+
+
+</div>
+</div>
+<br>
+
+</div>
+
+</div>
+ 
+
+<script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
+ <script src="dist/html2pdf.bundle.js"></script>
+ <script type="text/javascript" src="/js/main.js"></script>
+ 
+
+<!-- smooth scrolling -->
+</body>
+</html>
